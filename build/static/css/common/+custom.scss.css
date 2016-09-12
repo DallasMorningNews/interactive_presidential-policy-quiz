@@ -1,0 +1,13 @@
+.question-block {
+  font-family: "Gotham A", "Gotham B", Arial, sans-serif; }
+  .question-block li {
+    display: inline-block;
+    border: 1px solid #d7d7d7;
+    padding: 10px;
+    cursor: pointer; }
+    .question-block li.selected {
+      background-color: #323232;
+      color: white; }
+
+.no-show {
+  display: none !important; }
