@@ -10,8 +10,20 @@
 @import 'variables';
 @import 'mixins';
 
+.candidate-mug {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+#questions {
+    display: none;
+}
+
 .question-block {
     font-family: $sans;
+    margin-bottom: 4.8rem;
+    padding-bottom: 4.8rem;
+    border-bottom: 1px solid $black215;
     li {
         display: inline-block;
         border: 1px solid $black215;
