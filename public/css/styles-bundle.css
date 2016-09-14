@@ -908,26 +908,180 @@ XIX. ADS
     margin: 2.4rem 0;
     padding: 2.4rem 0; } }
 
-.candidate-mug {
-  max-width: 100px;
-  border-radius: 50%; }
+figure {
+  display: inline-block; }
+
+#quiz-block {
+  margin-top: 2.4rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid #d7d7d7;
+  font-family: "Gotham A", "Gotham B", Arial, sans-serif; }
+
+#candidates {
+  text-align: center;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  -webkit-transtion: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out; }
+  #candidates h4 {
+    font-weight: bold; }
+  #candidates figure {
+    width: 49%;
+    float: left;
+    position: relative;
+    min-height: 100px; }
+    #candidates figure img {
+      position: absolute;
+      max-width: 100px;
+      border-radius: 50%;
+      opacity: .9;
+      cursor: pointer;
+      -webkit-transtion: all 0.25s ease-out;
+      -moz-transition: all 0.25s ease-out;
+      -o-transition: all 0.25s ease-out;
+      transition: all 0.25s ease-out; }
+      #candidates figure img:hover {
+        opacity: 1; }
+      #candidates figure img.picked, #candidates figure img.not-picked {
+        max-width: 60px; }
+        #candidates figure img.picked.dem-mug, #candidates figure img.not-picked.dem-mug {
+          border: 4px solid #2F4886; }
+        #candidates figure img.picked.rep-mug, #candidates figure img.not-picked.rep-mug {
+          border: 4px solid #ee3523; }
+      #candidates figure img.picked {
+        opacity: 1; }
+      #candidates figure img.not-picked {
+        opacity: .5; }
+  #candidates.candidate-picked {
+    width: 300px;
+    margin: 0 auto; }
+    #candidates.candidate-picked h4 {
+      font-size: 1.8rem;
+      line-height: 2.4rem;
+      margin-bottom: 0.6rem; }
+    #candidates.candidate-picked img {
+      cursor: default; }
+
+#clinton-block {
+  float: left; }
+  #clinton-block img {
+    right: 5px; }
+  #clinton-block p {
+    right: 75px;
+    text-align: right; }
+
+#trump-block {
+  float: right; }
+  #trump-block img {
+    left: 5px; }
+  #trump-block p {
+    left: 75px;
+    text-align: left; }
+
+.dem-mug {
+  border: 6px solid #2F4886; }
+
+.rep-mug {
+  border: 6px solid #ee3523; }
+
+.dem-color {
+  color: #2F4886; }
+
+.rep-color {
+  color: #ee3523; }
+
+.candidate-score {
+  font-size: 2.4rem;
+  line-height: 60px;
+  margin-bottom: 0;
+  font-weight: bold;
+  display: none;
+  width: 80px;
+  position: absolute; }
 
 #questions {
   display: none; }
 
 .question-block {
   font-family: "Gotham A", "Gotham B", Arial, sans-serif;
-  margin-bottom: 4.8rem;
   padding-bottom: 4.8rem;
-  border-bottom: 1px solid #d7d7d7; }
+  border-bottom: 1px solid #d7d7d7;
+  max-width: 650px;
+  margin: 0 auto 4.8rem; }
+  .question-block h4, .question-block h5 {
+    font-weight: bold;
+    text-align: center; }
+  .question-block h4 {
+    display: none; }
   .question-block li {
     display: inline-block;
-    border: 1px solid #d7d7d7;
+    border: 2px solid #d7d7d7;
+    cursor: pointer;
+    -webkit-transtion: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out; }
+
+.point-values {
+  margin: 1.2rem auto 0;
+  width: 166px; }
+  .point-values li {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    line-height: 46px;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 5px; }
+    .point-values li:last-of-type {
+      margin-right: 0; }
+
+.answer-block {
+  display: none; }
+  .answer-block li {
+    width: 49%;
+    float: left;
     padding: 10px;
-    cursor: pointer; }
-    .question-block li.selected {
-      background-color: #323232;
-      color: white; }
+    border-radius: 5px;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    margin-bottom: 2%; }
+    .answer-block li:nth-of-type(even) {
+      float: right; }
+    .answer-block li:nth-of-type(odd) {
+      clear: left; }
+
+.dem-choice li:hover, .dem-choice .selected {
+  background-color: #2F4886;
+  color: white;
+  border: 2px solid #2F4886; }
+
+.rep-choice li:hover .rep-choice .selected {
+  background-color: #ee3523;
+  color: white;
+  border: 2px solid #ee3523; }
+
+.dem-choice .right-wrong {
+  color: #2F4886;
+  font-weight: bold; }
+
+.rep-coice .right-wrong {
+  color: #ee3523;
+  font-weight: bold; }
+
+.response {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  margin-bottom: 2.4rem; }
 
 .no-show {
   display: none !important; }
+
+.sticky {
+  position: fixed;
+  top: 0; }

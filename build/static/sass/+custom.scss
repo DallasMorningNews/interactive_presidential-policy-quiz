@@ -10,9 +10,114 @@
 @import 'variables';
 @import 'mixins';
 
-.candidate-mug {
-    max-width: 100px;
-    border-radius: 50%;
+figure {
+    display: inline-block;
+}
+
+#quiz-block {
+    margin-top: 2.4rem;
+    padding-top: 2.4rem;
+    border-top: 1px solid $black215;
+    font-family: $sans;
+}
+
+
+
+#candidates {
+    text-align: center;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    @include transition;
+    h4 {
+        font-weight: bold;
+    }
+    figure {
+        width: 49%;
+        float: left;
+        position: relative;
+        min-height: 100px;
+        img {
+            position: absolute;
+            max-width: 100px;
+            border-radius: 50%;
+            opacity: .9;
+            cursor: pointer;
+            @include transition;
+            &:hover {
+                opacity: 1;
+            }
+            &.picked, &.not-picked {
+                max-width: 60px;
+                &.dem-mug {
+                    border: 4px solid $demblue;
+                }
+                &.rep-mug {
+                    border: 4px solid $repred;
+                }
+            }
+            &.picked {
+                opacity: 1;
+            }
+            &.not-picked {
+                opacity: .5;
+            }
+        }
+    }
+    &.candidate-picked {
+        width: 300px;
+        margin: 0 auto;
+        h4 {
+            @include type(1.8rem, 2.4rem, .6rem);
+        }
+        img {
+            cursor: default;
+        }
+    }
+}
+
+#clinton-block {
+    float: left;
+    img {
+        right: 5px;
+    }
+    p {
+        right: 75px;
+        text-align: right;
+    }
+}
+
+#trump-block {
+    float: right;
+    img {
+        left: 5px;
+    }
+    p {
+        left: 75px;
+        text-align: left;
+    }
+}
+
+.dem-mug {
+    border: 6px solid $demblue;
+}
+.rep-mug {
+    border: 6px solid $repred;
+}
+
+.dem-color {
+    color: $demblue;
+}
+.rep-color {
+    color: $repred;
+}
+
+.candidate-score {
+    @include type(2.4rem, 60px, 0);
+    font-weight: bold;
+    display: none;
+    width: 80px;
+    position: absolute;
 }
 
 #questions {
@@ -21,22 +126,90 @@
 
 .question-block {
     font-family: $sans;
-    margin-bottom: 4.8rem;
     padding-bottom: 4.8rem;
     border-bottom: 1px solid $black215;
+    max-width: 650px;
+    margin: 0 auto 4.8rem;
+    h4, h5 {
+        font-weight: bold;
+        text-align: center;
+    }
+    h4 {
+        display: none;
+    }
     li {
         display: inline-block;
-        border: 1px solid $black215;
-        padding: 10px;
+        border: 2px solid $black215;
         cursor: pointer;
-        &.selected {
-            background-color: $black50;
-            color: white;
+        @include transition;
+    }
+}
+
+.point-values  {
+    margin: 1.2rem auto 0;
+    width: 166px;
+    li {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        @include type(2rem, 46px, 0);
+        font-weight: bold;
+        text-align: center;
+        margin-right: 5px;
+        &:last-of-type {
+            margin-right: 0;
         }
     }
 }
 
+.answer-block {
+    display: none;
+    li {
+        width: 49%;
+        float: left;
+        padding: 10px;
+        border-radius: 5px;
+        @include type(1.4rem, 1.8rem, 2%);
+        &:nth-of-type(even) {
+            float: right;
+        }
+        &:nth-of-type(odd) {
+            clear: left;
+        }
+    }
+}
+
+.dem-choice li:hover, .dem-choice .selected {
+    background-color: $demblue;
+    color: white;
+    border: 2px solid $demblue;
+}
+.rep-choice li:hover .rep-choice .selected {
+    background-color: $repred;
+    color: white;
+    border: 2px solid $repred;
+}
+
+.dem-choice .right-wrong {
+    color: $demblue;
+    font-weight: bold;
+}
+
+.rep-coice .right-wrong {
+    color: $repred;
+    font-weight: bold;
+}
+
+
+.response {
+    @include type(1.6rem, 2.4rem, 2.4rem);
+}
 
 .no-show {
     display: none !important;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
 }

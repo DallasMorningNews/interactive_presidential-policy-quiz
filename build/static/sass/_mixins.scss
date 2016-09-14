@@ -37,7 +37,7 @@
 
 
 //transition
-@mixin transition($property, $time, $ease: ease-out) {
+@mixin transition($property: all, $time: 0.25s, $ease: ease-out) {
 	-webkit-transtion: $property $time $ease;
 	-moz-transition: $property $time $ease;
 	-o-transition: $property $time $ease;

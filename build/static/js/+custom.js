@@ -39,17 +39,18 @@ $(document).ready(function() {
 		"total": 0
 	};
 
+
 	////////////////////////////////////////////////////////////////////////////
 	///// SELECTING A CANDIDATE ////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
 
 	$(".candidate-mug").bind("click", function() {
 
+		$("#candidates").addClass("candidate-picked");
+		$("#candidates h4").text("Total points");
+
 		// setting the candidate value on the quiz object to the candidate selected
 		quiz.candidate = $(this).attr("alt");
-
-		//reveal the questions section
-		$("#questions").slideDown(500);
 
 		// post that a candidate has been selected to the database. We do this here,
 		// even though no questions have been answered yet, because we want to get the
@@ -61,11 +62,37 @@ $(document).ready(function() {
 			}).done(function(data) {
 				console.log(data);
 				uniqueID = data.id;
+				$.getJSON("http://apps.dallasnews.com/livewire/presidential-policy-quiz", function(allData) {
+					updateNumbers(allData);
+				});
 			});
 
 		// unbind the click element on the candidate mugs. Choose wisely, as there's no going back
 		$(".candidate-mug").unbind("click");
+
+		// fade in the score after the mugs animate to a smaller size
+		setTimeout(function() {
+			$(".candidate-score").fadeIn("500");
+		}, 500);
+
+		// add the class "picked" to the candidate mug picked, and "not-picked" to the other
+		$(this).addClass("picked").parent("figure").siblings("figure").children("img").addClass("not-picked");
+
+		//reveal the first question
+		setTimeout(function() {
+			$("#questions").slideDown(500);
+		}, 500);
+
+		// adding a class to the quiz-block element to denote which candidate was
+		// selected. This will be use in color-themeing li elements and responses
+		if ($(this).hasClass("dem-mug")) {
+			$("#quiz-block").addClass("dem-choice");
+		} else {
+			$("#quiz-block").addClass("rep-choice");
+		}
+
 	});
+
 
 
 
@@ -74,9 +101,6 @@ $(document).ready(function() {
 	////////////////////////////////////////////////////////////////////////////
 
 	$(".point-values li").click(function() {
-
-		// hiding the point value selection list
-		$(this).parent("ul").addClass("no-show");
 
 		// grabbing the index of the li selected. This index value will correspond
 		// to which question gets displayed
@@ -118,6 +142,16 @@ $(document).ready(function() {
 					$("#" + category).find(".answer-block").append("<li>" + answers[key] + "</li>");
 				});
 
+				// fade out the h5 tag directing users to pick a point total
+				$("#" + category).find("h5").fadeOut(500);
+
+				// hiding the point value selection list, then, after that finishes
+				// fading in the h4 with the question and the ul with the answers
+				$("#" + category).find(".point-values").fadeOut(500, function() {
+					$("#" + category).find("h4").fadeIn(500);
+					$("#" + category).find(".answer-block").fadeIn(500);
+				});
+
 				// then bind the click function to each of those answer lis
 				// when the user clicks, it'll hand off that answer to the checkAnswers
 				$("#" + category).find(".answer-block li").bind("click", function() {
@@ -148,6 +182,7 @@ $(document).ready(function() {
 	////////////////////////////////////////////////////////////////////////////
 
 	function checkAnswers(c, i, answerSelected) {
+
 		console.log(c, i, answerSelected);
 
 		var category = questionGroup[c].cat;
@@ -157,7 +192,7 @@ $(document).ready(function() {
 
 			// if it is correct, we're going to append a response that says how many
 			// points were awarded to a given candidate
-			$("<p><span class='right-wrong'>Right. </span>" + _.capitalize(points[i]) + " to your candidate.</p>").insertBefore($("#" + category + " .read-more"));
+			$("<p class='response'><span class='right-wrong'>Right. </span>" + _.capitalize(points[i]) + " to your candidate.</p>").insertBefore($("#" + category + " .read-more"));
 
 			// update the appropriate quiz question's point value in the quiz object
 			// we use i + i because i is an index value of the li element and is 0 indexed
@@ -179,19 +214,22 @@ $(document).ready(function() {
 		} else {
 			// if the answer is wrong, append a reponse that alerts the user as such
 			// and supplies the correct answer
-			$("<p><span class='right-wrong'>That’s incorrect. </span> The right answer is: " + questionGroup[c].questions[i].correct_answer + "</p>").insertBefore($("#" + category + " .read-more"));
+			$("<p class='response'><span class='right-wrong'>That’s incorrect. </span> The right answer is: " + questionGroup[c].questions[i].correct_answer + "</p>").insertBefore($("#" + category + " .read-more"));
 
 		}
 
 		// and then we're going to reveal the link to the stories about x category
 		$("#" + category).find(".read-more").removeClass("no-show");
-
-
 	}
+
+
+	////////////////////////////////////////////////////////////////////////////
+	///// UPDATING POINT TOTALS ////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
 
 	function updateNumbers(data) {
 
-			// 0 out the totals
+			// zero out the totals
 			clintonCount = 0;
 			trumpCount = 0;
 			clintonScore= 0;
@@ -211,8 +249,34 @@ $(document).ready(function() {
 
 			console.log(clintonCount, clintonScore, trumpCount, trumpScore);
 
+			// update the scores in the candidate-score-blocks
+			$("#clinton-score").text(clintonScore);
+			$("#trump-score").text(trumpScore);
+
 	}
 
+	////////////////////////////////////////////////////////////////////////////
+	///// WINDOWS SCROLLING FUNCTIONS //////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+
+	var candidateTop = $("#candidates").offset().top;
+
+	$(window).scroll(function() {
+		var scrollTop = $(window).scrollTop();
+		var questionHeight = $("#questions").height();
+		var questionTop = $("#questions").offset().top;
+
+		console.log(scrollTop, candidateTop, questionTop + questionHeight);
+		if (scrollTop > candidateTop && scrollTop < (questionTop + questionHeight)) {
+			$("#candidates").addClass("sticky");
+			$("#questions").css("padding-top", "130px");
+		} else {
+			$("#candidates").removeClass("sticky");
+			$("#questions").css("padding-top", "0");
+		}
+
+
+	});
 
 
 
