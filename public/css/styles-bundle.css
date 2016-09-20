@@ -275,7 +275,8 @@ V. CONTENT WELL
 .content-well {
   font-family: "PT Serif", Georgia, Times, serif;
   margin: 0 auto;
-  max-width: 1400px;
+  background-color: white;
+  max-width: 900px;
   overflow: hidden;
   position: relative;
   width: 90%; }
@@ -293,9 +294,23 @@ V. CONTENT WELL
 .content-well > p:last-of-type {
   margin-bottom: 0; }
 
+.initial-well {
+  margin-top: -10vw; }
+  .initial-well #story-head {
+    padding: 0 20px; }
+
+@media (max-width: 900px) {
+  .initial-well #story-head {
+    margin-top: 1.2rem; } }
+
 @media (max-width: 500px) {
   .content-well > p {
-    font-size: 1.6rem; } }
+    font-size: 1.6rem; }
+  .initial-well {
+    margin-top: 0;
+    padding-top: 1.2rem; }
+    .initial-well #story-head {
+      padding: 0 0; } }
 
 /*
 -------------------------------------------
@@ -376,7 +391,7 @@ p.subhead {
     margin-bottom: 1.2rem; }
   #story-head h2 {
     font-size: 2.4rem;
-    line-height: 3.6rem;
+    line-height: 3rem;
     margin-bottom: 1.2rem; }
   #story-head h3 {
     font-size: 1.4rem;
@@ -912,80 +927,89 @@ figure {
   display: inline-block; }
 
 #quiz-block {
-  margin-top: 2.4rem;
-  padding-top: 2.4rem;
-  border-top: 1px solid #d7d7d7;
   font-family: "Gotham A", "Gotham B", Arial, sans-serif; }
+  #quiz-block h4.intro-head {
+    text-align: center;
+    font-weight: bold;
+    padding: 0 5%; }
+  #quiz-block p.intro-chatter {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 2.4rem;
+    padding: 0 5%; }
 
 #candidates {
   text-align: center;
   width: 100%;
-  max-width: 650px;
-  margin: 0 auto;
+  position: relative;
+  z-index: 20;
   -webkit-transtion: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -o-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out; }
+  #candidates .candidate-block {
+    margin: 0 auto; }
+    #candidates .candidate-block figure {
+      width: 50%;
+      float: left;
+      position: relative;
+      min-height: 100px; }
+      #candidates .candidate-block figure img {
+        position: absolute;
+        max-width: 100px;
+        border-radius: 50%;
+        opacity: .9;
+        cursor: pointer;
+        -webkit-transtion: all 0.25s ease-out;
+        -moz-transition: all 0.25s ease-out;
+        -o-transition: all 0.25s ease-out;
+        transition: all 0.25s ease-out; }
+        #candidates .candidate-block figure img:hover {
+          opacity: 1; }
+        #candidates .candidate-block figure img.picked, #candidates .candidate-block figure img.not-picked {
+          max-width: 60px; }
   #candidates h4 {
     font-weight: bold; }
-  #candidates figure {
-    width: 49%;
-    float: left;
-    position: relative;
-    min-height: 100px; }
-    #candidates figure img {
-      position: absolute;
-      max-width: 100px;
-      border-radius: 50%;
-      opacity: .9;
-      cursor: pointer;
-      -webkit-transtion: all 0.25s ease-out;
-      -moz-transition: all 0.25s ease-out;
-      -o-transition: all 0.25s ease-out;
-      transition: all 0.25s ease-out; }
-      #candidates figure img:hover {
-        opacity: 1; }
-      #candidates figure img.picked, #candidates figure img.not-picked {
-        max-width: 60px; }
-        #candidates figure img.picked.dem-mug, #candidates figure img.not-picked.dem-mug {
-          border: 4px solid #2F4886; }
-        #candidates figure img.picked.rep-mug, #candidates figure img.not-picked.rep-mug {
-          border: 4px solid #ee3523; }
-      #candidates figure img.picked {
-        opacity: 1; }
-      #candidates figure img.not-picked {
-        opacity: .5; }
-  #candidates.candidate-picked {
-    width: 300px;
+  #candidates.candidate-picked .candidate-block {
+    width: 100%;
     margin: 0 auto; }
-    #candidates.candidate-picked h4 {
-      font-size: 1.8rem;
-      line-height: 2.4rem;
-      margin-bottom: 0.6rem; }
-    #candidates.candidate-picked img {
-      cursor: default; }
+    #candidates.candidate-picked .candidate-block h4 {
+      display: none; }
+    #candidates.candidate-picked .candidate-block img {
+      cursor: default;
+      border-radius: 50%; }
+    #candidates.candidate-picked .candidate-block figure {
+      min-height: 80px;
+      padding: 10px 0; }
+    #candidates.candidate-picked .candidate-block #clinton-block {
+      background-color: #2F4886; }
+    #candidates.candidate-picked .candidate-block #trump-block {
+      background-color: #ee3523; }
+  #candidates.sticky {
+    position: fixed;
+    top: 0;
+    left: 0; }
 
 #clinton-block {
   float: left; }
   #clinton-block img {
-    right: 5px; }
+    right: 10px; }
   #clinton-block p {
     right: 75px;
-    text-align: right; }
+    text-align: right;
+    color: white; }
 
 #trump-block {
   float: right; }
   #trump-block img {
-    left: 5px; }
+    left: 10px; }
   #trump-block p {
     left: 75px;
-    text-align: left; }
-
-.dem-mug {
-  border: 6px solid #2F4886; }
-
-.rep-mug {
-  border: 6px solid #ee3523; }
+    text-align: left;
+    color: white; }
 
 .dem-color {
   color: #2F4886; }
@@ -1003,7 +1027,12 @@ figure {
   position: absolute; }
 
 #questions {
-  display: none; }
+  opacity: .3;
+  padding: 40px 5% 0;
+  -webkit-transtion: opacity 0.25s ease-out;
+  -moz-transition: opacity 0.25s ease-out;
+  -o-transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out; }
 
 .question-block {
   font-family: "Gotham A", "Gotham B", Arial, sans-serif;
@@ -1011,22 +1040,33 @@ figure {
   border-bottom: 1px solid #d7d7d7;
   max-width: 650px;
   margin: 0 auto 4.8rem; }
-  .question-block h4, .question-block h5 {
-    font-weight: bold;
-    text-align: center; }
   .question-block h4 {
     display: none; }
   .question-block li {
     display: inline-block;
     border: 2px solid #d7d7d7;
     cursor: pointer;
-    -webkit-transtion: all 0.25s ease-out;
-    -moz-transition: all 0.25s ease-out;
-    -o-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out; }
+    -webkit-transtion: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out; }
+
+.category {
+  color: white;
+  font-weight: bold;
+  padding: 1px 3px;
+  color: black; }
+
+.dem-choice .category {
+  background-color: #2F4886;
+  color: white; }
+
+.rep-choice .category {
+  background-color: #ee3523;
+  color: white; }
 
 .point-values {
-  margin: 1.2rem auto 0;
+  margin: 1.2rem 0 0;
   width: 166px; }
   .point-values li {
     width: 50px;
@@ -1061,7 +1101,7 @@ figure {
   color: white;
   border: 2px solid #2F4886; }
 
-.rep-choice li:hover .rep-choice .selected {
+.rep-choice li:hover, .rep-choice .selected {
   background-color: #ee3523;
   color: white;
   border: 2px solid #ee3523; }
@@ -1070,9 +1110,25 @@ figure {
   color: #2F4886;
   font-weight: bold; }
 
-.rep-coice .right-wrong {
+.rep-choice .right-wrong {
   color: #ee3523;
   font-weight: bold; }
+
+.read-more {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  margin-bottom: 0;
+  color: white;
+  padding: 10px;
+  border-radius: 5px; }
+  .read-more:visited {
+    color: white; }
+
+.dem-choice .read-more {
+  background-color: #2F4886; }
+
+.rep-choice .read-more {
+  background-color: #ee3523; }
 
 .response {
   font-size: 1.6rem;
@@ -1082,6 +1138,83 @@ figure {
 .no-show {
   display: none !important; }
 
-.sticky {
-  position: fixed;
-  top: 0; }
+#read-outs {
+  max-width: 900px;
+  margin: 0 auto 4.8rem;
+  display: none; }
+  #read-outs h5 {
+    font-weight: bold; }
+  #read-outs p {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    margin-bottom: 1.2rem; }
+  #read-outs img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; }
+  #read-outs figure {
+    position: relative;
+    margin-left: -22px;
+    -webkit-transtion: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out; }
+  #read-outs .read-out {
+    display: inline-block;
+    height: 20px;
+    border-radius: 10px;
+    text-align: right;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 20px;
+    margin-bottom: 0;
+    padding-right: 10px;
+    -webkit-transtion: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out; }
+
+#clinton-read-out figure {
+  margin-bottom: 10px; }
+  #clinton-read-out figure:after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 8px;
+    position: relative;
+    background-color: #797979;
+    position: absolute;
+    left: 50%; }
+
+#clinton-read-out .read-out {
+  background-color: #2F4886;
+  height: 20px; }
+
+#trump-read-out figure {
+  margin-top: 10px; }
+  #trump-read-out figure:before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 8px;
+    position: relative;
+    background-color: #797979;
+    position: absolute;
+    left: 50%;
+    top: -9px; }
+
+#trump-read-out .read-out {
+  background-color: #ee3523; }
+
+#trump-read-out .read-out-bar {
+  margin-bottom: 0; }
+
+.read-out-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #d7d7d7;
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  border-radius: 10px; }

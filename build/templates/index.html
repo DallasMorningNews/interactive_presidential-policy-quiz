@@ -92,23 +92,20 @@ googletag.enableServices();
 
 {%block content%}
 <section id="content-header">
-	<img src="images/_defaultImage.jpg" alt="#" />
-	<p class="cutline">Cutline goes here. You can remove this tag if you don't feel the lead image needs a cutline</p>
+	{{img.jpg("policy-illo", "Illustration of Hillary Clinton and Donald Trump")}}
 </section>
 <!-- end contentHeader -->
 
-<section class="content-well clearfix">
+<section class="content-well initial-well clearfix">
 
 	<header id="story-head">
-		<h3>Label, if needed</h3>
-		<h1>Main Headline</h1>
-		<h2>Deck head goes in this spot here</h2>
+		<h1>Policy pop quiz</h1>
+		<h2>You’ve studied how each candidate’s policies will have an impact on Texas. Now, let’s see how much you know.</h2>
 	</header>
 		<!-- end storyHead -->
 
     <div class="byline-block">
-        <p>By <a target="_blank" href="mailto:emailaddresshere">Writer Name</a> | Staff Writer</p>
-        <p>Published Month Date, Year</p>
+        <p>Published Sept. 26, 2016</p>
         <!-- <p>Updated Month, Date, Year</p> -->
     </div>
     <!-- end bylineBlock -->
@@ -118,38 +115,28 @@ googletag.enableServices();
 	</div>
 	<!-- end shareComments -->
 
-    <p class="intro"><span class="dropcap">A</span>n opening paragraph goes here. I love the Weather & Opera section plagiarism Julian Assange syndicated process vs. product curmudgeon, attracting young readers cognitive surplus the audience knows more than I do discuss anonymity WikiLeaks hyperhyperlocal Arianna future scoop, Twitter topples dictators the medium is the message information overload natural-born blogger metered model Colbert bump Julian Assange CTR.</p>
 
-    <p>column-inch trolls copyboy data visualization AOL afternoon paper shoot a photo attracting young readers, MinnPost but what's the business model Instagram fair use fourth estate morgue writing, The Work of Art in the Age of Mechanical Reproduction audience atomization overcome free as in beer Pictures of Goats section kitchen table of the future masthead.</p>
-
-    {%include "adblock1.html" %}
-
-    <!--
-      use the above include with adblock2.html and adblock3.html to place adblocks 2 and 3, then delete this comment.
-      it won't self-destruct, but it is cleaner
-    -->
-
-    <p>horse-race coverage copyboy the power of the press belongs to the person who owns one data visualization tweet Jeff Jarvis Patch Like button explainer, TechCrunch should isn't a business model copyright Romenesko WordPress Arianna Kindle Single Pictures of Goats section got drudged, gamification put the paper to bed the other longer Book Review The Work of Art in the Age of Mechanical Reproduction open newsroom Foursquare A.J. Liebling.</p>
-
-    <p>Instagram Quora linkbait people formerly known as the audience bringing a tote bag to a knife fight YouTube RT syndicated the power of the press belongs to the person who owns one, Alberto Ibarguen The Work of Art in the Age of Mechanical Reproduction open newsroom The Weekender the medium is the message Dan Fleckner analog thinking future of context Instagram, David Foster Wallace reporting gutter Aron Pilhofer serendipity This Week in Review he said she said.</p>
-
+</section>
     <section id="quiz-block" class="clearfix">
 
+        <h4 class="intro-head">To get started, join the candidate’s team you want to play for:</h4>
+        <p class="intro-chatter">Once you’ve joined your team, we’ll display your questions. The points for each correct answer will be added to your team’s total.</p>
         <section id="candidates" class="clearfix">
-            <h4>Pick the candidate you want to play for:</h4>
-            <figure class="candidate-score-block" id="clinton-block">
-                <p id="clinton-score" class="candidate-score dem-color">0</p>
-                <img class="candidate-mug dem-mug" src="images/_clinton.jpg" alt="Hillary Clinton"/>
-            </figure>
-            <figure class="candidate-score-block" id="trump-block">
-                <img class="candidate-mug rep-mug" src="images/_trump.jpg" alt="Donald Trump" />
-                <p id="trump-score" class="candidate-score rep-color">0</p>
-            </figure>
+            <div class="candidate-block clearfix">
+                <figure class="candidate-score-block" id="clinton-block">
+                    <p id="clinton-score" class="candidate-score dem-color">0</p>
+                    <img class="candidate-mug dem-mug" src="images/_clinton.jpg" alt="Hillary Clinton"/>
+                </figure>
+                <figure class="candidate-score-block" id="trump-block">
+                    <img class="candidate-mug rep-mug" src="images/_trump.jpg" alt="Donald Trump" />
+                    <p id="trump-score" class="candidate-score rep-color">0</p>
+                </figure>
+            </div>
         </section>
 
         <section id="questions">
-            <div class="question-block" id="category1">
-                <h5>Question 1 is about energy. Select a point value to reveal your question:</h5>
+            <div class="question-block" id="jobs">
+                <h5>Question one is about <span class="category">jobs,</span> which both candidates talk a lot about creating more of. Select a point value to reveal your question. The higher the points, the harder the question:</h5>
                 <ul class="point-values">
                     <li>1</li>
                     <li>2</li>
@@ -159,10 +146,10 @@ googletag.enableServices();
                 <h4></h4>
                 <ul class="answer-block clearfix"></ul>
 
-                <a class="read-more no-show" href="#" target="_blank">Read more</a>
+                <a class="read-more no-show" href="http://beta.dallasnews.com/business/economy/2016/09/20/clinton-vs-trump-texas-workers-look-candidate" target="_blank">Read more</a>
             </div>
 
-            <div class="question-block" id="category2">
+            <div class="question-block" id="healthcare">
                 <h5>Select your point value:</h5>
                 <ul class="point-values">
                     <li>1</li>
@@ -176,7 +163,7 @@ googletag.enableServices();
                 <a class="read-more no-show" href="#" target="_blank">Read more</a>
             </div>
 
-            <div class="question-block" id="category3">
+            <div class="question-block" id="trade">
                 <h5>Select your point value:</h5>
                 <ul class="point-values">
                     <li>1</li>
@@ -190,7 +177,21 @@ googletag.enableServices();
                 <a class="read-more no-show" href="#" target="_blank">Read more</a>
             </div>
 
-            <div class="question-block" id="category4">
+            <div class="question-block" id="energy">
+                <h5>Question four is about <span class="category">energy,</span> an industry so important to Texas that policy implemented by the next president could have a major impact on the state. Select a point value to reveal your question:</h5>
+                <ul class="point-values">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+
+                <h4></h4>
+                <ul class="answer-block clearfix"></ul>
+
+                <a class="read-more no-show" href="http://beta.dallasnews.com/business/energy/2016/09/19/clinton-vs-trump-raises-big-questions-energy-business-texas" target="_blank">Read more</a>
+            </div>
+
+            <div class="question-block" id="taxes">
                 <h5>Select your point value:</h5>
                 <ul class="point-values">
                     <li>1</li>
@@ -202,21 +203,43 @@ googletag.enableServices();
                 <ul class="answer-block clearfix"></ul>
 
                 <a class="read-more no-show" href="#" target="_blank">Read more</a>
+            </div>
+
+            <div id="read-outs">
+
+                <h5>But who's keeping score?</h5>
+                <p class="chatter">We are. You’ve contributed <span id="points-contributed">0</span> point(s) to your candidate’s total. Here‘s how supporters of each candidate are matching up: </p>
+
+                <div id="clinton-read-out">
+                    <figure>
+                        <img src="images/_clinton.jpg" alt="Clinton" />
+                    </figure>
+                    <div class="read-out-bar">
+                        <span class="read-out"></span>
+                    </div>
+                </div>
+
+                <div id="trump-read-out">
+                    <div class="read-out-bar" id="trump-read-out">
+                        <span class="read-out"></span>
+                    </div>
+                    <figure>
+                        <img src="images/_trump.jpg" alt="Trump"  />
+                    </figure>
+                </div>
             </div>
         </section>
 
     </section>
+<section class="content-well">
 
     <p class="twitter-tag">Follow writer name on Twitter at <a href="urlhere">@twittertag.</a></p>
 
 
 	<section class="credits clearfix">
-        <p><strong>Author:</strong> <a href="mailto:emailaddress">Name</a></p>
-        <p><strong>Editor:</strong> <a href="mailto:emailaddress">Name</a></p>
-        <p><strong>Copy Editor:</strong> <a href="mailto:emailaddress">Name</a></p>
-        <p><strong>Photos:</strong> <a href="mailto:emailaddress">Name</a></p>
-        <p><strong>Graphics:</strong> <a href="mailto:emailaddress">Name</a></p>
-        <p><strong>Designer:</strong> <a href="mailto:emailaddress">Name</a></p>
+        <p><strong>Editor:</strong> <a href="mailto:agarrett@dallasnews.com">Arnessa Garrett</a></p>
+        <p><strong>Illustration:</strong> <a href="mailto:mhogue@dallasnews.com">Michael Hogue</a></p>
+        <p><strong>Graphics and Design:</strong> <a href="mailto:jhancock@dallasnews.com">John Hancock</a></p>
 	</section>
 	<!-- end credits -->
 

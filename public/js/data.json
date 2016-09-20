@@ -1,141 +1,191 @@
 [
     {
-        "cat": "category1",
+        "cat": "jobs",
         "questions": [
             {
-                "question": "This is question 1",
+                "question": "Both Clinton and Trump want to raise the minimum wage, which in Texas is …?",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "$5.15/hr",
+                    "$7.25/hr",
+                    "$10/hr",
+                    "$15/hr"
                 ],
-                "correct_answer": "This is answer 1"
+                "correct_answer": "$7.25/hr",
+                "explainer": "Since Texas does not have a minimum wage, the state defaults to the federal wage rate which today is $7.25 an hour."
             },
             {
-                "question": "This is question 2",
+                "question": "How many states already have a minimum wage that’s higher than Texas?",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "8",
+                    "15",
+                    "23",
+                    "29"
                 ],
-                "correct_answer": "This is answer 2"
+                "correct_answer": "29",
+                "explainer": "Twenty-nine states and the District of Columbia have raised their minimum wage above the wage set by the federal government. Some have set the minimum wage as high as $10/hr."
             },
             {
-                "question": "This is question 3",
+                "question": "What is the average per capita personal income in Texas?",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "$22.987",
+                    "$35,550",
+                    "$46,745",
+                    "$75,904"
                 ],
-                "correct_answer": "This is answer 3"
+                "correct_answer": "$46,745",
+                "explainer": "In 2015, Texas had an annual average per capita income of $46,745, which ranked it 22nd among the states."
             }
         ]
     },
     {
-        "cat": "category2",
+        "cat": "healthcare",
         "questions": [
             {
-                "question": "This is question 1",
+                "question": "Both Trump and Clinton want to improve the care offered to the nation’s veterans. What is the health insurance program offered to active duty and retired military service members is called?",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "Tricare",
+                    "MiliCare",
+                    "Obamacare",
+                    "Medicare"
                 ],
-                "correct_answer": "This is answer 1"
+                "correct_answer": "Tricare",
+                "explainer": "The Defense Health Agency runs Tricare for members of the military, military retirees and their families.. In Texas, Tricare has 881,59 beneficiaries, or 9.4 percent of the total."
             },
             {
-                "question": "This is question 2",
+                "question": "According to estimates from the U.S. Census, what percentage of the U.S. population was uninsured in 2015?",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "15.9 percent",
+                    "19.2 percent",
+                    "45 percent",
+                    "56.5 percent"
                 ],
-                "correct_answer": "This is answer 2"
+                "correct_answer": "15.9%",
+                "explainer": " The latest figure from the Census estimated that about 15.9 percent of Americans are without insurance. But more recent polling indicates the percentage has fallen to around 11 percent."
             },
             {
-                "question": "This is question 3",
+                "question": "While Texas has not expanded Medicaid, under Obamacare rules the federal government pays if states expand Medicaid to people earning up to 138 percent of the poverty level, which for a family of four is …",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "$14,550 a year",
+                    "$25,890 a year",
+                    "$33,534 a year",
+                    "$55,779 a year"
                 ],
-                "correct_answer": "This is answer 3"
+                "correct_answer": "$33,534 a year",
+                "explainer": "Texas is among 19 states that have not expanded Medicaid to include this group. It is estimated that between 750,000 and 1 million Texans could be covered if Texas expanded Medicaid."
             }
         ]
     },
     {
-        "cat": "category3",
+        "cat": "Trade",
         "questions": [
             {
-                "question": "This is question 1",
+                "question": "The proposed Trans-Pacific Partnership, which both candidates say they oppose, notably excludes what economic powerhouse?",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "China",
+                    "Japan",
+                    "Australia",
+                    "Vietnam"
                 ],
-                "correct_answer": "This is answer 1"
+                "correct_answer": "China",
+                "explainer": "The 12-nation pact does not include China, the dominant player in the region. President Obama has billed TPP as a way to counter China’s outsized influence. But China could still join TPP at a later date."
             },
             {
-                "question": "This is question 2",
+                "question": "The North American Free Trade Agreement, which is a free-trade pact between, Canada, the United States and Mexico went into effect on January 1 of what year?",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "1977",
+                    "1980",
+                    "1994",
+                    "2000"
                 ],
-                "correct_answer": "This is answer 2"
+                "correct_answer": "1994",
+                "explainer": "President Bill Clinton signed the law on Dec.8. 1993, and it went into effect a few weeks later."
             },
             {
-                "question": "This is question 3",
+                "question": "A tax on goods leaving a country or coming into a country is called ...?",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "An excise tax",
+                    "A value-added tax",
+                    "A bond",
+                    "A tariff"
                 ],
-                "correct_answer": "This is answer 3"
+                "correct_answer": "A tariff",
+                "explainer": "Tariffs can be used by governments seeking to protect domestic industries, but they often provoke other countries to impose their own tariffs."
             }
         ]
     },
     {
-        "cat": "category4",
+        "cat": "energy",
         "questions": [
             {
-                "question": "This is question 1",
+                "question": "Trump and Clinton disagree on whether there should be more federal regulations on this drilling technique that has led to a boom in Texas oil and gas production.",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "Fracking",
+                    "Milling",
+                    "Mudding up",
+                    "Weathering"
                 ],
-                "correct_answer": "This is answer 1"
+                "correct_answer": "Fracking",
+                "explainer": "While Clinton would support a ban on fracking, Trump has said he is in favor it it but would support local bans."
             },
             {
-                "question": "This is question 2",
+                "question": "On renewable energy, Texas has more installed wind power capacity than any other state. Who’s number two?",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "South Dakota",
+                    "California",
+                    "Iowa",
+                    "New York"
                 ],
-                "correct_answer": "This is answer 2"
+                "correct_answer": "Iowa",
+                "explainer": "According to the 2015 annual report by the American Wind Energy Association, Texas continues to lead the nation with over 17,700 megawatts of installed capacity. Iowa ranks second in the nation with more than 6,200 MW of installed capacity, passing California."
             },
             {
-                "question": "This is question 3",
+                "question": "Which of the following is NOT a fossil fuel?",
                 "answer_group": [
-                    "This is answer 1",
-                    "This is answer 2",
-                    "This is answer 3",
-                    "This is answer 4"
+                    "Coal",
+                    "Oil",
+                    "Natural gas",
+                    "Nuclear"
                 ],
-                "correct_answer": "This is answer 3"
+                "correct_answer": "Nuclear",
+                "explainer": "Clinton’s policies would reduce the nation’s reliance on fossil fuels, which include coal, oil and natural gas. Trump has said he will support these industries and the jobs they produce."
+            }
+        ]
+    }
+    ,{
+        "cat": "taxes",
+        "questions": [
+            {
+                "question": "For Tax Year 2014, how many federal income tax returns filed in Texas reported adjusted gross income of more than $1 million?",
+                "answer_group": [
+                    "15,990",
+                    "38,840",
+                    "75,299",
+                    "100,854"
+                ],
+                "correct_answer": "38,840",
+                "explainer": "According the the IRS, there were 38,840 income tax returns from Texas that reported $1 million or more in income.  That doesn’t include those who have $1 million or more in assets."
+            },
+            {
+                "question": "For Tax Year 2014, how much did individual filers from Texas send to the federal government?",
+                "answer_group": [
+                    "$5 billion",
+                    "$29 billion",
+                    "$130 billion",
+                    "$345 billion"
+                ],
+                "correct_answer": "$130 billion",
+                "explainer": "According to the IRS,Texans sent  $130 billion to the federal government from individual income tax returns."
+            },
+            {
+                "question": "For Fiscal Year 2015, what percentage of the taxes that Texas sent to the federal government were from corporate income taxes?",
+                "answer_group": [
+                    "11.5 percent",
+                    "15.9 percent",
+                    "25.2 percent",
+                    "50.8 percent"
+                ],
+                "correct_answer": "11.5 percent",
+                "explainer": "While taxes on individuals, both income and payroll taxes, from Texas made up nearly 80 percent of what the state sent to Washington, taxes on corporations made up 11.5 percent. "
             }
         ]
     }

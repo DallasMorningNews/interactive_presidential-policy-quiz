@@ -64,6 +64,7 @@ $(document).ready(function() {
 				uniqueID = data.id;
 				$.getJSON("http://apps.dallasnews.com/livewire/presidential-policy-quiz", function(allData) {
 					updateNumbers(allData);
+					updateReadouts(allData);
 				});
 			});
 
@@ -80,7 +81,8 @@ $(document).ready(function() {
 
 		//reveal the first question
 		setTimeout(function() {
-			$("#questions").slideDown(500);
+			$("#questions").css("opacity", 1);
+			$("#read-outs").slideDown(500);
 		}, 500);
 
 		// adding a class to the quiz-block element to denote which candidate was
@@ -101,6 +103,12 @@ $(document).ready(function() {
 	////////////////////////////////////////////////////////////////////////////
 
 	$(".point-values li").click(function() {
+
+
+		if ($("#candidates").hasClass("candidate-picked") === false) {
+			alert("Please select a candidate");
+			return;
+		}
 
 		// grabbing the index of the li selected. This index value will correspond
 		// to which question gets displayed
@@ -190,6 +198,9 @@ $(document).ready(function() {
 		// checking if the answer is correct
 		if (answerSelected === questionGroup[c].questions[i].correct_answer) {
 
+			// updated the total score
+			totalPoints += (i + 1);
+
 			// if it is correct, we're going to append a response that says how many
 			// points were awarded to a given candidate
 			$("<p class='response'><span class='right-wrong'>Right. </span>" + _.capitalize(points[i]) + " to your candidate.</p>").insertBefore($("#" + category + " .read-more"));
@@ -209,14 +220,18 @@ $(document).ready(function() {
 					console.log("Whoops, something bad happened!");
 				}).done(function(data) {
 					updateNumbers(data);
+					updateReadouts(data);
 				});
 
 		} else {
 			// if the answer is wrong, append a reponse that alerts the user as such
 			// and supplies the correct answer
-			$("<p class='response'><span class='right-wrong'>That’s incorrect. </span> The right answer is: " + questionGroup[c].questions[i].correct_answer + "</p>").insertBefore($("#" + category + " .read-more"));
+			$("<p class='response'><span class='right-wrong'>That’s incorrect. </span> The right answer is " + questionGroup[c].questions[i].correct_answer + "</p>").insertBefore($("#" + category + " .read-more"));
 
 		}
+
+		// append the explainer to the response
+		$(".response").append(" " + questionGroup[c].questions[i].explainer);
 
 		// and then we're going to reveal the link to the stories about x category
 		$("#" + category).find(".read-more").removeClass("no-show");
@@ -232,8 +247,10 @@ $(document).ready(function() {
 			// zero out the totals
 			clintonCount = 0;
 			trumpCount = 0;
-			clintonScore= 0;
+			clintonScore = 0;
 			trumpScore = 0;
+
+			var combinedScores= 0;
 
 			// iterate over the data returned from the database and total up the
 			// individual counts
@@ -247,32 +264,55 @@ $(document).ready(function() {
 				}
 			});
 
-			console.log(clintonCount, clintonScore, trumpCount, trumpScore);
+			// get the total number of points by both candidates in aggregate
+			combinedScores = clintonScore + trumpScore;
 
+			clintonPercentage = clintonScore / combinedScores * 100;
+			trumpPercentage = trumpScore / combinedScores * 100;
+
+			clintonScore = Number(clintonScore).toLocaleString("en");
+			trumpScore = Number(trumpScore).toLocaleString("en");
+
+			console.log(clintonPercentage, trumpPercentage);
 			// update the scores in the candidate-score-blocks
 			$("#clinton-score").text(clintonScore);
 			$("#trump-score").text(trumpScore);
 
+			$("#clinton-read-out figure").css("left", clintonPercentage + "%");
+			$("#trump-read-out figure, #trump-read-out .read-out").css("left", trumpPercentage + "%");
+
+			$("#clinton-read-out .read-out").css("width", clintonPercentage + "%").text(clintonScore);
+			$("#trump-read-out .read-out").css("width", trumpPercentage + "%").text(trumpScore);
+
+			$("#points-contributed").text(totalPoints);
 	}
+
+
+
 
 	////////////////////////////////////////////////////////////////////////////
 	///// WINDOWS SCROLLING FUNCTIONS //////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
 
-	var candidateTop = $("#candidates").offset().top;
+	var candidateTop;
 
 	$(window).scroll(function() {
+
+		console.log(candidateTop);
+		if (candidateTop === undefined) {
+			candidateTop = $("#candidates").offset().top;
+		}
+
 		var scrollTop = $(window).scrollTop();
 		var questionHeight = $("#questions").height();
 		var questionTop = $("#questions").offset().top;
 
-		console.log(scrollTop, candidateTop, questionTop + questionHeight);
-		if (scrollTop > candidateTop && scrollTop < (questionTop + questionHeight)) {
-			$("#candidates").addClass("sticky");
-			$("#questions").css("padding-top", "130px");
+		if (scrollTop > candidateTop && scrollTop < (questionTop + questionHeight) && $("#candidates").hasClass("candidate-picked") === true) {
+			$(".candidate-picked").addClass("sticky");
+			$("#questions").css("padding-top", "100px");
 		} else {
-			$("#candidates").removeClass("sticky");
-			$("#questions").css("padding-top", "0");
+			$(".candidate-picked").removeClass("sticky");
+			$("#questions").css("padding-top", "40px");
 		}
 
 

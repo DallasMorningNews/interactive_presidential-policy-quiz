@@ -275,7 +275,8 @@ V. CONTENT WELL
 .content-well {
   font-family: "PT Serif", Georgia, Times, serif;
   margin: 0 auto;
-  max-width: 1400px;
+  background-color: white;
+  max-width: 900px;
   overflow: hidden;
   position: relative;
   width: 90%; }
@@ -293,9 +294,23 @@ V. CONTENT WELL
 .content-well > p:last-of-type {
   margin-bottom: 0; }
 
+.initial-well {
+  margin-top: -10vw; }
+  .initial-well #story-head {
+    padding: 0 20px; }
+
+@media (max-width: 900px) {
+  .initial-well #story-head {
+    margin-top: 1.2rem; } }
+
 @media (max-width: 500px) {
   .content-well > p {
-    font-size: 1.6rem; } }
+    font-size: 1.6rem; }
+  .initial-well {
+    margin-top: 0;
+    padding-top: 1.2rem; }
+    .initial-well #story-head {
+      padding: 0 0; } }
 
 /*
 -------------------------------------------
@@ -376,7 +391,7 @@ p.subhead {
     margin-bottom: 1.2rem; }
   #story-head h2 {
     font-size: 2.4rem;
-    line-height: 3.6rem;
+    line-height: 3rem;
     margin-bottom: 1.2rem; }
   #story-head h3 {
     font-size: 1.4rem;
