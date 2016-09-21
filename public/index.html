@@ -68,6 +68,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/styles-bundle.css" />
 	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
 
 
 
@@ -148,6 +149,18 @@ googletag.enableServices();
 		<a class="logo" href="http://www.dallasnews.com" id="top"><span class="sr-only">The Dallas Morning News</span></a>
 	</header>
 
+	<div id="candidate-modal">
+
+		<span class="close">x</span>
+
+		<h6>Please pick a team to play for to begin the quiz:</h6>
+		<div class="mug-group">
+			<img class="candidate-mug dem-mug" src="images/_clinton.jpg" alt="Hillary Clinton" />
+			<img class="candidate-mug rep-mug" src="images/_trump.jpg" alt="Donald Trump" />
+		</div>
+
+	</div>
+
 	<article id="content">
 
 	
@@ -183,21 +196,23 @@ googletag.enableServices();
 		<ul id="share-bar1" class="width-auto-hack"></ul>
 	</div>
 	<!-- end shareComments -->
-
+    <p class="lead-in">Over the past week, we’ve told you how the potential policies implemented by the two presidential candidates, Donald Trump and Hillary Clinton, could impact the Texas economy, such as <a href="http://beta.dallasnews.com/business/economy/2016/09/20/clinton-vs-trump-texas-workers-look-candidate" target="_blank">jobs,</a> <a href="#" target="_blank">healthcare, </a><a href="#" target="_">trade, </a><a href="http://beta.dallasnews.com/business/energy/2016/09/19/clinton-vs-trump-raises-big-questions-energy-business-texas" target="_blank">energy</a> and <a href="#" target="_blank">taxes.</a> Now, we’re testing supporters for each candidate to see which party has the most knowledgable team.</p>
 
 </section>
     <section id="quiz-block" class="clearfix">
 
         <h4 class="intro-head">To get started, join the candidate’s team you want to play for:</h4>
-        <p class="intro-chatter">Once you’ve joined your team, we’ll display your questions. The points for each correct answer will be added to your team’s total.</p>
+        <p class="intro-chatter">Click on one of the candidate’s below to join their team. Once you’ve joined a team, we’ll display your questions. The points for each correct answer will be added to your team’s total.</p>
         <section id="candidates" class="clearfix">
             <div class="candidate-block clearfix">
                 <figure class="candidate-score-block" id="clinton-block">
+                    <p class="score-label">Team score</p>
                     <p id="clinton-score" class="candidate-score dem-color">0</p>
                     <img class="candidate-mug dem-mug" src="images/_clinton.jpg" alt="Hillary Clinton"/>
                 </figure>
                 <figure class="candidate-score-block" id="trump-block">
                     <img class="candidate-mug rep-mug" src="images/_trump.jpg" alt="Donald Trump" />
+                    <p class="score-label">Team score</p>
                     <p id="trump-score" class="candidate-score rep-color">0</p>
                 </figure>
             </div>
@@ -205,7 +220,7 @@ googletag.enableServices();
 
         <section id="questions">
             <div class="question-block" id="jobs">
-                <h5>Question one is about <span class="category">jobs,</span> which both candidates talk a lot about creating more of. Select a point value to reveal your question. The higher the points, the harder the question:</h5>
+                <h5>Question one is about <span class="category">jobs</span>, which both candidates talk a lot about creating more of. Select a point value to reveal your question. The higher the points, the harder the question:</h5>
                 <ul class="point-values">
                     <li>1</li>
                     <li>2</li>
@@ -219,7 +234,7 @@ googletag.enableServices();
             </div>
 
             <div class="question-block" id="healthcare">
-                <h5>Select your point value:</h5>
+                <h5>Question two is about <span class="category">health care</span>, which some explainer text will go here. Select a point value to reveal your questions:</h5>
                 <ul class="point-values">
                     <li>1</li>
                     <li>2</li>
@@ -233,7 +248,7 @@ googletag.enableServices();
             </div>
 
             <div class="question-block" id="trade">
-                <h5>Select your point value:</h5>
+                <h5>Question three is about <span class="category">trade</span>, which some explainer text will go here. Select a point value to reveal your questions:</h5>
                 <ul class="point-values">
                     <li>1</li>
                     <li>2</li>
@@ -247,7 +262,7 @@ googletag.enableServices();
             </div>
 
             <div class="question-block" id="energy">
-                <h5>Question four is about <span class="category">energy,</span> an industry so important to Texas that policy implemented by the next president could have a major impact on the state. Select a point value to reveal your question:</h5>
+                <h5>Question four is about <span class="category">energy</span>, an industry so important to Texas that policy implemented by the next president could have a major impact on the state. Select a point value to reveal your question:</h5>
                 <ul class="point-values">
                     <li>1</li>
                     <li>2</li>
@@ -261,7 +276,7 @@ googletag.enableServices();
             </div>
 
             <div class="question-block" id="taxes">
-                <h5>Select your point value:</h5>
+                <h5>Questoin five is about <span class="category">taxes</span>, which some explainer text will go here. Select a point value to reveal your question:</h5>
                 <ul class="point-values">
                     <li>1</li>
                     <li>2</li>
@@ -302,7 +317,16 @@ googletag.enableServices();
     </section>
 <section class="content-well">
 
-    <p class="twitter-tag">Follow writer name on Twitter at <a href="urlhere">@twittertag.</a></p>
+    </section>
+
+    <div id="dfpAdPositionTop" class="ad"> <!-- to remove bottom and top rules, add class "noRule" -->
+        <p class="adLabel">Advertisement</p>
+        <script type="text/javascript">googletag.display('dfpAdPositionTop');</script>
+    </div>
+    <!-- end adBlock -->
+
+<section class="content-well">
+
 
 
 	<section class="credits clearfix">
@@ -314,20 +338,20 @@ googletag.enableServices();
 
 	<section class="more clearfix">
 		<h5>Read more from The Dallas Morning News</h5>
-		<a class="clearfix" href="#">
-			<img src="images/_defaultImage.jpg" alt="#" />
-			<h6>Story title goes here</h6>
-			<p>Description of the story goes in this spot here</p>
+		<a class="clearfix" href="http://interactives.dallasnews.com/2016/tuition-set-asides/">
+			<img src="images/_patrickShare.jpg" alt="Jadzia Hardeman" />
+			<h6>How Dan Patrick could keep some Texans from college</h6>
+			<p>Thousands of poor and middle-income students could lose support, and others wouldn’t save as much as he claims.</p>
 		</a>
 		<a class="clearfix" href="#">
-			<img src="images/_defaultImage.jpg" alt="#" />
-			<h6>Story title goes here</h6>
-			<p>Description of the story goes in this spot here</p>
+			<img src="images/_raceShare.jpg" alt="Gloria Fortner, 13, and her parents, Bruce and Florencia." />
+			<h6>Race and the U.S. Census: The face of change</h6>
+			<p>Americans of mixed-race are navigating a shifting middle ground as interracial coupling becomes more common.</p>
 		</a>
 		<a class="clearfix" href="#">
-			<img src="images/_defaultImage.jpg" alt="#" />
-			<h6>Story title goes here</h6>
-			<p>Description of the story goes in this spot here</p>
+			<img src="images/_ceoShare.jpg" alt="Perry Sook" />
+			<h6>The 100 highest-paid CEOs in Dallas-Fort Worth</h6>
+			<p>The region’s top 10 executives’ pay packages was near the national median for the top 200 Fortune 500 companies.</p>
 		</a>
 	</section>
 	<!-- end more -->

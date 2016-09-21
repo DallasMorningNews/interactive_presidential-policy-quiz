@@ -46,6 +46,8 @@ $(document).ready(function() {
 
 	$(".candidate-mug").bind("click", function() {
 
+		closeModal();
+
 		$("#candidates").addClass("candidate-picked");
 		$("#candidates h4").text("Total points");
 
@@ -64,7 +66,6 @@ $(document).ready(function() {
 				uniqueID = data.id;
 				$.getJSON("http://apps.dallasnews.com/livewire/presidential-policy-quiz", function(allData) {
 					updateNumbers(allData);
-					updateReadouts(allData);
 				});
 			});
 
@@ -73,11 +74,8 @@ $(document).ready(function() {
 
 		// fade in the score after the mugs animate to a smaller size
 		setTimeout(function() {
-			$(".candidate-score").fadeIn("500");
+			$(".candidate-score-block p").fadeIn("500");
 		}, 500);
-
-		// add the class "picked" to the candidate mug picked, and "not-picked" to the other
-		$(this).addClass("picked").parent("figure").siblings("figure").children("img").addClass("not-picked");
 
 		//reveal the first question
 		setTimeout(function() {
@@ -98,6 +96,7 @@ $(document).ready(function() {
 
 
 
+
 	////////////////////////////////////////////////////////////////////////////
 	///// SELECTING A POINT VALUE FOR A QUESTION ///////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
@@ -105,8 +104,20 @@ $(document).ready(function() {
 	$(".point-values li").click(function() {
 
 
+		$(".candidate-score-block").removeClass("dem-correct-answer rep-correct-answer");
+
+		// check if a candidate has been picked. If it hasn't, display a modal/popup
+		// instructing the reader to do so
+
 		if ($("#candidates").hasClass("candidate-picked") === false) {
-			alert("Please select a candidate");
+
+			$("body").addClass("no-scroll");
+			$("article").addClass("modal-display");
+
+			setTimeout(function() {
+				$("#candidate-modal").fadeIn(500);
+			}, 250);
+
 			return;
 		}
 
@@ -198,12 +209,18 @@ $(document).ready(function() {
 		// checking if the answer is correct
 		if (answerSelected === questionGroup[c].questions[i].correct_answer) {
 
+			if ($("#quiz-block").hasClass("dem-choice") === true) {
+				$("#clinton-block").addClass("dem-correct-answer");
+			} else {
+				$("#trump-block").addClass("rep-correct-answer");
+			}
+
 			// updated the total score
 			totalPoints += (i + 1);
 
 			// if it is correct, we're going to append a response that says how many
 			// points were awarded to a given candidate
-			$("<p class='response'><span class='right-wrong'>Right. </span>" + _.capitalize(points[i]) + " to your candidate.</p>").insertBefore($("#" + category + " .read-more"));
+			$("<p class='response'><span class='correct'><i class='fa fa-check'></i> Right.</span> " + _.capitalize(points[i]) + " to your candidate. " + questionGroup[c].questions[i].explainer + "</p>").insertBefore($("#" + category + " .read-more"));
 
 			// update the appropriate quiz question's point value in the quiz object
 			// we use i + i because i is an index value of the li element and is 0 indexed
@@ -220,18 +237,17 @@ $(document).ready(function() {
 					console.log("Whoops, something bad happened!");
 				}).done(function(data) {
 					updateNumbers(data);
-					updateReadouts(data);
 				});
 
 		} else {
 			// if the answer is wrong, append a reponse that alerts the user as such
 			// and supplies the correct answer
-			$("<p class='response'><span class='right-wrong'>That’s incorrect. </span> The right answer is " + questionGroup[c].questions[i].correct_answer + "</p>").insertBefore($("#" + category + " .read-more"));
+			$("<p class='response'><span class='incorrect'><i class='fa fa-times'></i> That’s incorrect. </span> The right answer is " + questionGroup[c].questions[i].correct_answer + ". " + questionGroup[c].questions[i].explainer + "</p>").insertBefore($("#" + category + " .read-more"));
 
 		}
 
-		// append the explainer to the response
-		$(".response").append(" " + questionGroup[c].questions[i].explainer);
+		// // append the explainer to the response
+		// $(".response").append(" " + questionGroup[c].questions[i].explainer);
 
 		// and then we're going to reveal the link to the stories about x category
 		$("#" + category).find(".read-more").removeClass("no-show");
@@ -307,7 +323,7 @@ $(document).ready(function() {
 		var questionHeight = $("#questions").height();
 		var questionTop = $("#questions").offset().top;
 
-		if (scrollTop > candidateTop && scrollTop < (questionTop + questionHeight) && $("#candidates").hasClass("candidate-picked") === true) {
+		if (scrollTop > candidateTop && $("#candidates").hasClass("candidate-picked") === true) {
 			$(".candidate-picked").addClass("sticky");
 			$("#questions").css("padding-top", "100px");
 		} else {
@@ -319,6 +335,26 @@ $(document).ready(function() {
 	});
 
 
+	////////////////////////////////////////////////////////////////////////////
+	///// CLOSING THE MODAL ////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+
+	// clicking the close button in the modal runs the function that handles closing the modal
+	$(".close").click(function() {
+		closeModal();
+	});
+
+	function closeModal() {
+		// fading out the modal
+		$("#candidate-modal").fadeOut(500);
+
+		// after the modal fades out, remove the no-scroll class from body and the modal-display
+		// class from the content article
+		setTimeout(function() {
+			$("body").removeClass("no-scroll");
+			$("#content").removeClass("modal-display");
+		}, 500);
+	}
 
 
 });
