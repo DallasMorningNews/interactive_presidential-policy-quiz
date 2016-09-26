@@ -33,7 +33,7 @@
                     "$75,904"
                 ],
                 "correct_answer": "$46,745",
-                "explainer": "In 2015, Texas had an annual average per capita income of $46,745, which ranked it 22nd among the states."
+                "explainer": "In 2015, Texas had an annual average per capita income of $46,745, which ranks 22nd among the states."
             }
         ]
     },
@@ -41,7 +41,7 @@
         "cat": "healthcare",
         "questions": [
             {
-                "question": "Both Trump and Clinton want to improve the care offered to the nation’s veterans. What is the health insurance program offered to active duty and retired military service members is called?",
+                "question": "Both Trump and Clinton want to improve the care offered to the nation’s veterans. What is the health insurance program offered to active duty and retired military service members called?",
                 "answer_group": [
                     "Tricare",
                     "MiliCare",
@@ -49,7 +49,7 @@
                     "Medicare"
                 ],
                 "correct_answer": "Tricare",
-                "explainer": "The Defense Health Agency runs Tricare for members of the military, military retirees and their families.. In Texas, Tricare has 881,59 beneficiaries, or 9.4 percent of the total."
+                "explainer": "The Defense Health Agency runs Tricare for members of the military, military retirees and their families. In Texas, Tricare has 881,560 beneficiaries, or 9.4 percent of the total."
             },
             {
                 "question": "According to estimates from the U.S. Census, what percentage of the U.S. population was uninsured in 2015?",
@@ -59,8 +59,8 @@
                     "45 percent",
                     "56.5 percent"
                 ],
-                "correct_answer": "15.9%",
-                "explainer": " The latest figure from the Census estimated that about 15.9 percent of Americans are without insurance. But more recent polling indicates the percentage has fallen to around 11 percent."
+                "correct_answer": "15.9 percent",
+                "explainer": "The latest figure from the Census estimated that about 15.9 percent of Americans are without insurance. But more recent polling indicates the percentage has fallen to around 11 percent."
             },
             {
                 "question": "While Texas has not expanded Medicaid, under Obamacare rules the federal government pays if states expand Medicaid to people earning up to 138 percent of the poverty level, which for a family of four is …",
@@ -90,7 +90,7 @@
                 "explainer": "The 12-nation pact does not include China, the dominant player in the region. President Obama has billed TPP as a way to counter China’s outsized influence. But China could still join TPP at a later date."
             },
             {
-                "question": "The North American Free Trade Agreement, which is a free-trade pact between, Canada, the United States and Mexico went into effect on January 1 of what year?",
+                "question": "The North American Free Trade Agreement, which is a free-trade pact between Canada, the United States and Mexico went into effect on January 1 of what year?",
                 "answer_group": [
                     "1977",
                     "1980",
@@ -125,10 +125,10 @@
                     "Weathering"
                 ],
                 "correct_answer": "Fracking",
-                "explainer": "While Clinton would support a ban on fracking, Trump has said he is in favor it it but would support local bans."
+                "explainer": "While Clinton would support a ban on fracking, Trump has said he is in favor of it but would support local bans."
             },
             {
-                "question": "On renewable energy, Texas has more installed wind power capacity than any other state. Who’s number two?",
+                "question": "On renewable energy, Texas has more installed wind power capacity than any other state. Which state is number two?",
                 "answer_group": [
                     "South Dakota",
                     "California",
@@ -174,7 +174,7 @@
                     "$345 billion"
                 ],
                 "correct_answer": "$130 billion",
-                "explainer": "According to the IRS,Texans sent  $130 billion to the federal government from individual income tax returns."
+                "explainer": "According to the IRS, Texans sent $130 billion to the federal government from individual income tax returns."
             },
             {
                 "question": "For Fiscal Year 2015, what percentage of the taxes that Texas sent to the federal government were from corporate income taxes?",
@@ -185,7 +185,7 @@
                     "50.8 percent"
                 ],
                 "correct_answer": "11.5 percent",
-                "explainer": "While taxes on individuals, both income and payroll taxes, from Texas made up nearly 80 percent of what the state sent to Washington, taxes on corporations made up 11.5 percent. "
+                "explainer": "While taxes on individuals, both income and payroll taxes, from Texas made up nearly 80 percent of what the state sent to Washington, taxes on corporations made up 11.5 percent."
             }
         ]
     }
